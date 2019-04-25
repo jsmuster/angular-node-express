@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node_modules/.bin/concurrently -k -n ang,svr -c cyan,yellow npm:start-ng npm:start-express",
+    "start-ng": "ng serve",
+    "start-express": "node ./bin/www",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,10 +22,16 @@
     "@angular/platform-browser": "^7.1.4",
     "@angular/platform-browser-dynamic": "^7.1.4",
     "@angular/router": "^7.1.4",
+    "body-parser": "^1.13.2",
     "bootstrap": "^3.4.0",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "^1.3.5",
     "core-js": "^2.5.4",
+    "express": "^4.13.1",
+    "fastest-validator": "^0.6.12",
     "rxjs": "^6.0.0",
     "tslib": "^1.9.0",
+    "uid-safe": "^2.1.5",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
